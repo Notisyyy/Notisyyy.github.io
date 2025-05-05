@@ -64,13 +64,21 @@
       background-color: #ff6b97;
     }
 
-    .spotify {
+    .spotify, .message-box {
       margin-top: 30px;
       text-align: center;
     }
 
     iframe {
       border-radius: 12px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
     }
 
     @media (max-width: 480px) {
@@ -92,9 +100,16 @@
       <button onclick="toggleAuto()">สุ่มต่อเนื่อง</button>
     </div>
 
+    <div class="message-box">
+      <h3>ส่งข้อความถึงชามิก</h3>
+      <input type="text" id="userMessage" placeholder="พิมพ์ข้อความที่นี่" />
+      <br/><br/>
+      <button onclick="sendToDiscord()" style="background-color: #e75480;">ส่งคำตอบ</button>
+    </div>
+
     <div class="spotify">
       <h3>เพลงนี้มอบให้คุณซัน</h3>
-      <iframe style="border-radius:12px" src="https://open.spotify.com/track/5b2OC2aaioNReqHlQs1TbR?si=jB2DhZ8pTtK0adsNjXDFoQ" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5b2OC2aaioNReqHlQs1TbR?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </div>
 
@@ -133,6 +148,34 @@
       } else {
         clearInterval(interval);
       }
+    }
+
+    function sendToDiscord() {
+      const message = document.getElementById("userMessage").value.trim();
+      if (!message) {
+        alert("กรุณาใส่ข้อความก่อนส่งนะ");
+        return;
+      }
+
+      fetch("https://discord.com/api/webhooks/1368892979686801429/58MEJoO7ULnLO02jnCu26bx53uRpTs8GQIZ-QPRCpaW5j3hXw8nCXYbj8qMP_QCOP33o", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ content: message })
+      })
+      .then(res => {
+        if (res.ok) {
+          alert("ส่งเรียบร้อยแล้ว!");
+          document.getElementById("userMessage").value = "";
+        } else {
+          alert("ส่งไม่สำเร็จ ลองใหม่อีกครั้งนะ");
+        }
+      })
+      .catch(err => {
+        console.error("Error:", err);
+        alert("เกิดข้อผิดพลาดในการส่ง");
+      });
     }
   </script>
 </body>
