@@ -1,73 +1,102 @@
-<!DOCTYPE html><html lang="en" class="bg-zinc-950 text-white">
+<!DOCTYPE html>
+<html lang="en" class="bg-gradient-to-r from-indigo-700 via-purple-800 to-black text-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kyntho Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+      /* Background with moving gradient lines */
+      @keyframes moveGradient {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+      body {
+        background: linear-gradient(45deg, #7b5df7, #5719e7, #000000);
+        background-size: 400% 400%;
+        animation: moveGradient 10s ease infinite;
+      }
+    </style>
   </head>
   <body class="flex">
     <!-- Sidebar -->
-    <aside class="w-64 h-screen bg-zinc-900 p-4 space-y-4">
-      <h1 class="text-xl font-bold">Kyntho Hub</h1>
-      <nav class="space-y-2">
-        <a href="#dashboard" class="block hover:bg-zinc-800 p-2 rounded">Dashboard</a>
-        <a href="#settings" class="block hover:bg-zinc-800 p-2 rounded">Settings</a>
-        <a href="#scripts" class="block hover:bg-zinc-800 p-2 rounded">Scripts</a>
+    <aside class="w-64 h-screen bg-zinc-900 p-6 space-y-6 shadow-lg rounded-3xl transform transition-all duration-500 hover:scale-105">
+      <h1 class="text-2xl font-bold text-gradient bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">Kyntho Hub</h1>
+      <nav class="space-y-4">
+        <a href="#dashboard" class="flex items-center text-lg hover:text-indigo-400 hover:bg-zinc-800 p-2 rounded-lg transition duration-300">
+          <i class="fas fa-tachometer-alt mr-3"></i> Dashboard
+        </a>
+        <a href="#settings" class="flex items-center text-lg hover:text-indigo-400 hover:bg-zinc-800 p-2 rounded-lg transition duration-300">
+          <i class="fas fa-cogs mr-3"></i> Settings
+        </a>
+        <a href="#scripts" class="flex items-center text-lg hover:text-indigo-400 hover:bg-zinc-800 p-2 rounded-lg transition duration-300">
+          <i class="fas fa-code mr-3"></i> Scripts
+        </a>
       </nav>
-    </aside><!-- Main -->
-<main class="flex-1 p-6 space-y-12">
-  <!-- Dashboard -->
-  <section id="dashboard">
-    <h2 class="text-2xl font-semibold mb-2">Welcome to Kyntho Hub</h2>
-    <p class="text-zinc-400">Please login with Discord (simulated for demo).</p>
-    <button onclick="alert('Simulate Discord login')" class="mt-4 bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-500">
-      Sign in with Discord
-    </button>
-  </section>
+    </aside>
 
-  <!-- Settings -->
-  <section id="settings">
-    <h2 class="text-2xl font-semibold mb-4">Settings</h2>
-    <div class="flex items-center gap-4">
-      <img src="https://via.placeholder.com/64" class="w-16 h-16 rounded-full" alt="User profile" />
-      <div>
-        <p class="text-lg">Discord User</p>
-        <p class="text-sm text-zinc-400">user@example.com</p>
-      </div>
-    </div>
-    <button onclick="alert('Sign out clicked')" class="mt-4 bg-red-600 px-4 py-2 rounded hover:bg-red-500">
-      Sign Out
-    </button>
-  </section>
+    <!-- Main -->
+    <main class="flex-1 p-8 space-y-12 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 rounded-3xl shadow-2xl">
+      <!-- Dashboard -->
+      <section id="dashboard" class="space-y-4">
+        <h2 class="text-3xl font-semibold text-center">Welcome to Kyntho Hub</h2>
+        <p class="text-zinc-300 text-center">Please login with Discord (simulated for demo).</p>
+        <div class="flex justify-center mt-6">
+          <button onclick="alert('Simulate Discord login')" class="bg-indigo-600 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-indigo-500 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl">
+            <i class="fab fa-discord mr-2"></i> Sign in with Discord
+          </button>
+        </div>
+      </section>
 
-  <!-- Scripts -->
-  <section id="scripts">
-    <h2 class="text-2xl font-semibold mb-6">Script Library</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-zinc-900 rounded-xl p-4 shadow hover:shadow-lg">
-        <h3 class="text-xl font-bold mb-1">Auto Farm Script</h3>
-        <p class="text-zinc-400 text-sm mb-3">Farms resources automatically.</p>
-        <button onclick="copyScript('loadstring(\"https://example.com/autofarm.lua\")()')" class="bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-500 text-sm">
-          Copy Script
-        </button>
-      </div>
-      <div class="bg-zinc-900 rounded-xl p-4 shadow hover:shadow-lg">
-        <h3 class="text-xl font-bold mb-1">ESP Script</h3>
-        <p class="text-zinc-400 text-sm mb-3">Highlights all players.</p>
-        <button onclick="copyScript('loadstring(\"https://example.com/esp.lua\")()')" class="bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-500 text-sm">
-          Copy Script
-        </button>
-      </div>
-    </div>
-  </section>
-</main>
+      <!-- Settings -->
+      <section id="settings" class="space-y-6">
+        <h2 class="text-3xl font-semibold">Settings</h2>
+        <div class="flex items-center gap-6">
+          <img src="https://via.placeholder.com/64" class="w-16 h-16 rounded-full border-4 border-indigo-600" alt="User profile" />
+          <div>
+            <p class="text-xl font-medium">Discord User</p>
+            <p class="text-sm text-zinc-400">user@example.com</p>
+          </div>
+        </div>
+        <div class="mt-6">
+          <button onclick="alert('Sign out clicked')" class="bg-red-600 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-red-500 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl">
+            <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
+          </button>
+        </div>
+      </section>
 
-<script>
-  function copyScript(code) {
-    navigator.clipboard.writeText(code.replaceAll('\\"', '"'));
-    alert("Copied to clipboard!");
-  }
-</script>
+      <!-- Scripts -->
+      <section id="scripts" class="space-y-8">
+        <h2 class="text-3xl font-semibold">Script Library</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-zinc-900 rounded-xl p-6 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+            <h3 class="text-xl font-bold mb-2 text-indigo-400">Auto Farm Script</h3>
+            <p class="text-zinc-400 text-sm mb-4">Farms resources automatically.</p>
+            <button onclick="copyScript('loadstring(\"https://example.com/autofarm.lua\")()')" class="bg-indigo-600 px-6 py-3 rounded-lg text-sm font-semibold hover:bg-indigo-500 transition duration-300 transform hover:scale-110">
+              <i class="fas fa-copy mr-2"></i> Copy Script
+            </button>
+          </div>
+          <div class="bg-zinc-900 rounded-xl p-6 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+            <h3 class="text-xl font-bold mb-2 text-indigo-400">ESP Script</h3>
+            <p class="text-zinc-400 text-sm mb-4">Highlights all players.</p>
+            <button onclick="copyScript('loadstring(\"https://example.com/esp.lua\")()')" class="bg-indigo-600 px-6 py-3 rounded-lg text-sm font-semibold hover:bg-indigo-500 transition duration-300 transform hover:scale-110">
+              <i class="fas fa-copy mr-2"></i> Copy Script
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
 
+    <script>
+      function copyScript(code) {
+        navigator.clipboard.writeText(code.replaceAll('\\"', '"'));
+        alert("Copied to clipboard!");
+      }
+    </script>
   </body>
 </html>
