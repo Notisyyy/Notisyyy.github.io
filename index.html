@@ -1,200 +1,73 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>สำหรับคุณซันคนพิเศษที่สุด</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap');
+<!DOCTYPE html><html lang="en" class="bg-zinc-950 text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kyntho Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex">
+    <!-- Sidebar -->
+    <aside class="w-64 h-screen bg-zinc-900 p-4 space-y-4">
+      <h1 class="text-xl font-bold">Kyntho Hub</h1>
+      <nav class="space-y-2">
+        <a href="#dashboard" class="block hover:bg-zinc-800 p-2 rounded">Dashboard</a>
+        <a href="#settings" class="block hover:bg-zinc-800 p-2 rounded">Settings</a>
+        <a href="#scripts" class="block hover:bg-zinc-800 p-2 rounded">Scripts</a>
+      </nav>
+    </aside><!-- Main -->
+<main class="flex-1 p-6 space-y-12">
+  <!-- Dashboard -->
+  <section id="dashboard">
+    <h2 class="text-2xl font-semibold mb-2">Welcome to Kyntho Hub</h2>
+    <p class="text-zinc-400">Please login with Discord (simulated for demo).</p>
+    <button onclick="alert('Simulate Discord login')" class="mt-4 bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-500">
+      Sign in with Discord
+    </button>
+  </section>
 
-    body {
-      font-family: 'Sarabun', sans-serif;
-      background: linear-gradient(135deg, #d0c1f7, #c1d9f7);
-      color: #333;
-      margin: 0;
-      padding: 20px;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: #ffffffdd;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      color: #6a5acd;
-      margin-bottom: 20px;
-    }
-
-    .love-display {
-      font-size: 1.4rem;
-      background: #e6e6ff;
-      padding: 20px;
-      border-left: 6px solid #b39ddb;
-      border-radius: 15px;
-      min-height: 80px;
-      margin-bottom: 20px;
-      transition: transform 0.2s ease;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    button {
-      padding: 12px 20px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      background-color: #9575cd;
-      color: white;
-      transition: background 0.2s ease, transform 0.1s ease;
-    }
-
-    button:hover {
-      background-color: #7e57c2;
-      transform: scale(1.05);
-    }
-
-    .heart {
-      position: fixed;
-      font-size: 24px;
-      color: #ff80ab;
-      animation: floatUp 2s ease forwards;
-      z-index: 999;
-    }
-
-    @keyframes floatUp {
-      0% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-150px);
-      }
-    }
-
-    @keyframes pop {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    #secretMsg {
-      display: none;
-      margin-top: 20px;
-      text-align: center;
-      font-size: 1.2rem;
-      color: #6a1b9a;
-    }
-
-    #passwordInput {
-      padding: 10px;
-      margin-top: 10px;
-      font-size: 1rem;
-      border-radius: 10px;
-      border: 2px solid #9575cd;
-    }
-
-    @media (max-width: 480px) {
-      .love-display {
-        font-size: 1.1rem;
-      }
-      button {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>สำหรับคุณซันคนพิเศษที่สุด</h1>
-    <div id="loveDisplay" class="love-display">???????</div>
-    <div class="buttons">
-      <button onclick="showRandomLove()">สุ่มคำ</button>
-      <button onclick="toggleAuto()">สุ่มต่อเนื่อง</button>
-      <button onclick="openSecret()">เปิดข้อความลับ</button>
+  <!-- Settings -->
+  <section id="settings">
+    <h2 class="text-2xl font-semibold mb-4">Settings</h2>
+    <div class="flex items-center gap-4">
+      <img src="https://via.placeholder.com/64" class="w-16 h-16 rounded-full" alt="User profile" />
+      <div>
+        <p class="text-lg">Discord User</p>
+        <p class="text-sm text-zinc-400">user@example.com</p>
+      </div>
     </div>
+    <button onclick="alert('Sign out clicked')" class="mt-4 bg-red-600 px-4 py-2 rounded hover:bg-red-500">
+      Sign Out
+    </button>
+  </section>
 
-    <div id="secretMsg">รักน้ารักมากๆด้วย</div>
-    <input type="text" id="passwordInput" placeholder="กรอกรหัสลับที่นี่" />
-    <button onclick="checkPassword()">ยืนยัน</button>
-  </div>
+  <!-- Scripts -->
+  <section id="scripts">
+    <h2 class="text-2xl font-semibold mb-6">Script Library</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-zinc-900 rounded-xl p-4 shadow hover:shadow-lg">
+        <h3 class="text-xl font-bold mb-1">Auto Farm Script</h3>
+        <p class="text-zinc-400 text-sm mb-3">Farms resources automatically.</p>
+        <button onclick="copyScript('loadstring(\"https://example.com/autofarm.lua\")()')" class="bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-500 text-sm">
+          Copy Script
+        </button>
+      </div>
+      <div class="bg-zinc-900 rounded-xl p-4 shadow hover:shadow-lg">
+        <h3 class="text-xl font-bold mb-1">ESP Script</h3>
+        <p class="text-zinc-400 text-sm mb-3">Highlights all players.</p>
+        <button onclick="copyScript('loadstring(\"https://example.com/esp.lua\")()')" class="bg-indigo-600 px-4 py-2 rounded hover:bg-indigo-500 text-sm">
+          Copy Script
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <script>
-    const loveMessages = [
-      "วันนี้ก็คิ้วท์เหมือนเดิมเลยนะคุณซัน",
-      "แอบยิ้มทุกครั้งที่คิดถึงชื่อเธอ",
-      "ถ้าใจเรามีสี คงเป็นม่วงละมุนที่มีคุณชามิกอยู่ตรงกลาง",
-      "เธอคือความน่ารักที่ทำให้ทุกวันเป็นวันที่ดี",
-      "เวลาคิดถึงคุณซัน ใจก็เต้นแรงทุกทีเลย",
-      "คุณซันคือความอบอุ่นแบบที่เราไม่อยากให้หายไป",
-      "มีเธออยู่ในใจทุกวินาทีเลยรู้ไหม",
-      "อยากบอกว่ารักนะ...แต่เขินจังเลยคุณซัน",
-      "อยู่ใกล้คุณซันแล้วใจมันฟูเลยแหละ",
-      "รักนะคะคุณซัน คนเดียวเลยนะ"
-    ];
+<script>
+  function copyScript(code) {
+    navigator.clipboard.writeText(code.replaceAll('\\"', '"'));
+    alert("Copied to clipboard!");
+  }
+</script>
 
-    const loveDisplay = document.getElementById("loveDisplay");
-    let autoMode = false;
-    let interval;
-
-    function showRandomLove() {
-      const randomMsg = loveMessages[Math.floor(Math.random() * loveMessages.length)];
-      loveDisplay.textContent = randomMsg;
-      loveDisplay.style.animation = "pop 0.3s ease";
-      setTimeout(() => {
-        loveDisplay.style.animation = "";
-      }, 300);
-
-      showHeartEffect();
-    }
-
-    function toggleAuto() {
-      autoMode = !autoMode;
-      if (autoMode) {
-        interval = setInterval(showRandomLove, 2000);
-        alert("สุ่มคำแบบคิ้วท์ๆ เริ่มแล้วน้า~");
-      } else {
-        clearInterval(interval);
-        alert("หยุดก่อนเนอะ ค่อยคิดถึงต่อน้า");
-      }
-    }
-
-    function showHeartEffect() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.textContent = "❤";
-      heart.style.left = `${Math.random() * 90 + 5}%`;
-      heart.style.bottom = "20px";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 2000);
-    }
-
-    function openSecret() {
-      document.getElementById("passwordInput").style.display = "inline-block";
-      document.getElementById("passwordInput").focus();
-      document.getElementById("secretMsg").style.display = "none";  // Hide the secret initially
-    }
-
-    function checkPassword() {
-      const password = document.getElementById("passwordInput").value;
-      if (password === "รักจริง") {
-        document.getElementById("secretMsg").style.display = "block";
-      } else {
-        alert("รหัสผิด ลองใหม่อีกครั้ง!");
-      }
-    }
-  </script>
-</body>
+  </body>
 </html>
